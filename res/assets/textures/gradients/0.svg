@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="0.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1189113"
+     inkscape:cx="372.68369"
+     inkscape:cy="426.30724"
+     inkscape:window-width="1431"
+     inkscape:window-height="867"
+     inkscape:window-x="233"
+     inkscape:window-y="183"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient973">
+      <stop
+         style="stop-color:#fde5a2;stop-opacity:0.61176473"
+         offset="0"
+         id="stop969" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0"
+         offset="1"
+         id="stop971" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient973"
+       id="radialGradient979"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99999603,-0.00281855,0.00282904,1.0037155,-0.35049003,-0.16805703)"
+       cx="103.3202"
+       cy="124.57608"
+       fx="103.3202"
+       fy="124.57608"
+       r="64.1325" />
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:url(#radialGradient979);stroke:none;stroke-width:0.265;stroke-linecap:round;stroke-linejoin:bevel;paint-order:markers fill stroke;fill-opacity:1;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path846"
+       r="64"
+       cy="124.11495"
+       cx="103.58415"
+       inkscape:export-filename="/home/rostik/A] godot Poject/scars_of_gems/res/assets/textures/gradients/lamp_light.png"
+       inkscape:export-xdpi="100.9"
+       inkscape:export-ydpi="100.9" />
+  </g>
+</svg>

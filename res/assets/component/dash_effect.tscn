@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://i1vsk25t87ts"]
+
+[ext_resource type="Texture2D" uid="uid://deydwx88efcm2" path="res://res/assets/textures/entitys/starl/starl-dash_up.png" id="1_u2bph"]
+
+[sub_resource type="GDScript" id="GDScript_3li0t"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+		get_tree().create_tween().tween_property(self, \"modulate\", Color(82, 136, 226, 0), 0.1)
+		await get_tree().create_timer(0.1).timeout
+		queue_free()
+"
+
+[node name="DashEffect" type="Sprite2D"]
+modulate = Color(0.321569, 0.533333, 0.886275, 0.494118)
+z_index = -1
+texture = ExtResource("1_u2bph")
+script = SubResource("GDScript_3li0t")

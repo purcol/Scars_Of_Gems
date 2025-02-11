@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s0pfoi60k5wn"]
+
+[ext_resource type="Script" path="res://res/data/tools/scripts/path_teller.gd" id="1_wu43j"]
+
+[node name="path_teller" type="Path2D"]
+script = ExtResource("1_wu43j")

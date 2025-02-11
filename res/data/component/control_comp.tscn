@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp0pjxuc32bob"]
+
+[sub_resource type="GDScript" id="GDScript_7wm2h"]
+script/source = "extends Node2D
+
+@export var use_keys := false
+@export var use_progress := false
+## влево | вправо | вверх | вниз | деш
+@export var keys:Array[String] = [\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\", \"input_dash\"]
+
+var progress: float = 0
+
+func _process(_delta: float) -> void:
+	if use_keys:
+		$\"../Movement_comp\".movment(Input.get_axis(\"ui_left\", keys[1]),Input.get_axis(keys[2], keys[3]))
+		if Input.is_action_pressed(keys[0]):
+			print(\"HERE\")
+		if Input.is_action_just_pressed(keys[5]):
+			$\"../Dash_comp\".start_dash()
+	if use_progress:
+		if get_child(0).progress:
+			get_child(0).progress = progress+1
+
+func run_control(id:int = 0):
+	if id == -1:
+		get_tree().change_scene_to_file(\"res://res/data/tools/level_end_plaseholder.tscn\")
+	get_child(id).action()
+"
+
+[node name="control_comp" type="Node2D"]
+script = SubResource("GDScript_7wm2h")

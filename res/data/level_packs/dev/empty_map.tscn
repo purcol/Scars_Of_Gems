@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xlu03fxgwx1q"]
+
+[ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_dr0lo"]
+[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/player.tscn" id="2_syrc7"]
+
+[node name="TestPizzelMap" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.541176, 0.494118, 0.611765, 1)
+
+[node name="Map" parent="." instance=ExtResource("1_dr0lo")]
+
+[node name="TileMapStars" parent="Map/ParallaxBackground/Spase" index="1"]
+layer_0/tile_data = PackedInt32Array(-65536, 196608, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_syrc7")]
+
+[editable path="Map"]
