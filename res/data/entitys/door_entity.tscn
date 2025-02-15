@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccs0oml6nmboi"]
+[gd_scene load_steps=9 format=3 uid="uid://ccs0oml6nmboi"]
 
 [ext_resource type="Script" path="res://res/data/entitys/scripts/door_entity.gd" id="1_bwhq1"]
 [ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="2_qid3b"]
 [ext_resource type="PackedScene" uid="uid://bydk3laaoov3a" path="res://res/data/component/controlers/controlel_door.tscn" id="3_0aae4"]
 [ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="3_4ca0w"]
 [ext_resource type="PackedScene" uid="uid://cqjr2xmtpm2ax" path="res://res/data/component/sprite_component.tscn" id="4_gxsdh"]
+[ext_resource type="Script" path="res://res/data/component/controlers/scripts/controler_door.gd" id="5_0xc2l"]
 [ext_resource type="Texture2D" uid="uid://bmpc4tl4ccnfq" path="res://res/assets/textures/entitys/door/door.png" id="5_vc6ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raqov"]
@@ -22,6 +23,7 @@ _static = true
 [node name="step_counter" parent="Components/Controler_Component" instance=ExtResource("3_4ca0w")]
 
 [node name="ControlCompDoor" parent="Components/Controler_Component" instance=ExtResource("3_0aae4")]
+script = ExtResource("5_0xc2l")
 
 [node name="Sprite_Component" parent="Components" instance=ExtResource("4_gxsdh")]
 texture = ExtResource("5_vc6ji")

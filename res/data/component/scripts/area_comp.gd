@@ -8,4 +8,4 @@ extends Area2D
 
 func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
 	if body.name == "PlayerEntity":
-		get_tree().call_deferred("change_scene_to_file", "res://res/data/tools/level_end_plaseholder.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://res/data/level_packs/dev/level_end_plaseholder.tscn")
