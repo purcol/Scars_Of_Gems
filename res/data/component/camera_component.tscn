@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cw03e0euy74ob"]
+
+[node name="Camera_Component" type="Camera2D"]
+position = Vector2(-0.5, -11)
+position_smoothing_enabled = true

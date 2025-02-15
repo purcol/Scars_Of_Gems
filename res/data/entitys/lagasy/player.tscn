@@ -1,6 +1,6 @@
 [gd_scene load_steps=79 format=3 uid="uid://b47mj7uwssg5i"]
 
-[ext_resource type="Script" path="res://res/data/entitys/player.gd" id="1_5imj4"]
+[ext_resource type="Script" path="res://res/data/entitys/lagasy/player.gd" id="1_5imj4"]
 [ext_resource type="Texture2D" uid="uid://y8cbjguok4sm" path="res://res/assets/textures/entitys/starl/starl-dash_down.png" id="2_ly2jp"]
 [ext_resource type="Texture2D" uid="uid://cmvo54s1w2h1g" path="res://res/assets/textures/entitys/starl/starl-walk_down.png" id="3_3mofl"]
 [ext_resource type="Texture2D" uid="uid://ctiuw5kj7ay7p" path="res://res/assets/textures/entitys/starl/starl-dash_left.png" id="3_83xf3"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://deydwx88efcm2" path="res://res/assets/textures/entitys/starl/starl-dash_up.png" id="5_wiytb"]
 [ext_resource type="Texture2D" uid="uid://omwgturhyb3d" path="res://res/assets/textures/entitys/starl/starl_simple_idel.png" id="6_q2xub"]
 [ext_resource type="Texture2D" uid="uid://dkyf83rerjofn" path="res://res/assets/textures/entitys/starl/starl_song_idel.png" id="7_iui7r"]
-[ext_resource type="PackedScene" uid="uid://bh2b7pwnhr3xg" path="res://res/data/component/dash_comp.tscn" id="7_k12nv"]
-[ext_resource type="PackedScene" uid="uid://cltfi1o238f0x" path="res://res/data/component/movement_comp.tscn" id="8_tm4jv"]
+[ext_resource type="PackedScene" uid="uid://bh2b7pwnhr3xg" path="res://res/data/component/legasy/dash_comp.tscn" id="7_k12nv"]
+[ext_resource type="PackedScene" uid="uid://cltfi1o238f0x" path="res://res/data/component/legasy/movement_comp.tscn" id="8_tm4jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42mub"]
 size = Vector2(11, 2)

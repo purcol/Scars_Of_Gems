@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c01ndjx7caldq"]
+
+[ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="1_333pt"]
+[ext_resource type="PackedScene" uid="uid://cuu7l00uhw1pr" path="res://res/data/component/controlers/controler_keys.tscn" id="2_6bjwg"]
+[ext_resource type="PackedScene" uid="uid://dj88q6qc4b5qa" path="res://res/data/component/animated_sprite_component.tscn" id="3_u5rw2"]
+[ext_resource type="PackedScene" uid="uid://cw03e0euy74ob" path="res://res/data/component/camera_component.tscn" id="4_d3jl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwive"]
+size = Vector2(11, 2)
+
+[node name="PlayerEntity" type="CharacterBody2D"]
+z_index = 1
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Controler_Component" parent="Components" instance=ExtResource("1_333pt")]
+
+[node name="Controler_Component" parent="Components/Controler_Component" instance=ExtResource("2_6bjwg")]
+
+[node name="Animated_Sprite_Component" parent="Components" instance=ExtResource("3_u5rw2")]
+animation = &"simple_idel"
+idel_anim = "simple_idel"
+
+[node name="Camera_Component" parent="Components" instance=ExtResource("4_d3jl4")]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kwive")

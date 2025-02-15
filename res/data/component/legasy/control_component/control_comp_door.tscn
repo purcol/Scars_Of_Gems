@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bydk3laaoov3a"]
 
-[ext_resource type="Script" path="res://res/data/entitys/scripts/control_component/control_comp_door.gd" id="1_8iudc"]
+[ext_resource type="Script" path="res://res/data/entitys/lagasy/scripts/control_component/control_comp_door.gd" id="1_8iudc"]
 
 [node name="ControlCompDoor" type="Node2D"]
 script = ExtResource("1_8iudc")

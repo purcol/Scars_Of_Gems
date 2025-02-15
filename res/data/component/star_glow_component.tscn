@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwrrelixaw27"]
+
+[ext_resource type="Shader" path="res://res/assets/materials/star_shard_light/star_shard_light.gdshader" id="1_y6sc7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fspbm"]
+shader = ExtResource("1_y6sc7")
+shader_parameter/size = 0.3
+shader_parameter/posision = Vector2(0.5, 0.5)
+
+[node name="StarGlow_Component" type="ColorRect"]
+material = SubResource("ShaderMaterial_fspbm")
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+color = Color(0.972641, 0.847089, 0.188067, 1)

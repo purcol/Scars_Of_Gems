@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cps726wly3rva"]
 
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_bindc"]
-[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/door.tscn" id="2_aotmj"]
-[ext_resource type="PackedScene" uid="uid://cm5lhkacogqts" path="res://res/data/entitys/star_shard.tscn" id="2_h80dx"]
-[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/player.tscn" id="2_riy2s"]
-[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/platform.tscn" id="3_xkoqs"]
+[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/lagasy/door.tscn" id="2_aotmj"]
+[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/lagasy/platform.tscn" id="3_xkoqs"]
 [ext_resource type="PackedScene" uid="uid://s0pfoi60k5wn" path="res://res/data/tools/path_teller.tscn" id="4_mcqf2"]
+[ext_resource type="PackedScene" uid="uid://bv7hq4clxerf1" path="res://res/data/entitys/star_shard_entity.tscn" id="6_13tgi"]
+[ext_resource type="PackedScene" uid="uid://c01ndjx7caldq" path="res://res/data/entitys/player_entity.tscn" id="6_w6xek"]
 
 [sub_resource type="Curve2D" id="Curve2D_ytcbp"]
 _data = {
@@ -36,25 +36,28 @@ layer_3/tile_data = PackedInt32Array(-18, 589824, 10, -17, 720896, 10, -16, 7208
 layer_0/tile_data = PackedInt32Array(327672, 1114112, 0, 196613, 1114112, 0, -327676, 1114112, 0, -327685, 1114112, 0)
 layer_1/tile_data = PackedInt32Array(-327676, 1114112, 0, -327685, 1114112, 0, 196613, 1114112, 0, 327672, 1114112, 0)
 
-[node name="Door" parent="." instance=ExtResource("2_aotmj")]
+[node name="Entitys" type="Node2D" parent="."]
+
+[node name="Puzzle" type="Node2D" parent="Entitys"]
+
+[node name="Door" parent="Entitys/Puzzle" instance=ExtResource("2_aotmj")]
 position = Vector2(-56, -40)
 reverse = true
 
-[node name="Door2" parent="." instance=ExtResource("2_aotmj")]
+[node name="Door2" parent="Entitys/Puzzle" instance=ExtResource("2_aotmj")]
 position = Vector2(-56, 8)
 rotation = 3.14159
 
-[node name="Platform" parent="." instance=ExtResource("3_xkoqs")]
+[node name="Platform" parent="Entitys/Puzzle" instance=ExtResource("3_xkoqs")]
 position = Vector2(-160, 192)
 
-[node name="path_teller" parent="Platform" instance=ExtResource("4_mcqf2")]
+[node name="path_teller" parent="Entitys/Puzzle/Platform" instance=ExtResource("4_mcqf2")]
 curve = SubResource("Curve2D_ytcbp")
 
-[node name="Player" parent="." instance=ExtResource("2_riy2s")]
-z_index = 1
+[node name="PlayerEntity" parent="Entitys" instance=ExtResource("6_w6xek")]
 position = Vector2(44, -16)
 
-[node name="StarHard" parent="." instance=ExtResource("2_h80dx")]
-position = Vector2(-336, -16)
+[node name="StarShardEentity" parent="Entitys" instance=ExtResource("6_13tgi")]
+position = Vector2(-335.5, -18.5)
 
 [editable path="Map"]

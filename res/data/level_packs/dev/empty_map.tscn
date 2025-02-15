@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xlu03fxgwx1q"]
+[gd_scene load_steps=4 format=3 uid="uid://xlu03fxgwx1q"]
 
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_dr0lo"]
-[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/player.tscn" id="2_syrc7"]
+[ext_resource type="PackedScene" uid="uid://c01ndjx7caldq" path="res://res/data/entitys/player_entity.tscn" id="2_y07t5"]
+[ext_resource type="PackedScene" uid="uid://bv7hq4clxerf1" path="res://res/data/entitys/star_shard_entity.tscn" id="3_xxreo"]
 
 [node name="TestPizzelMap" type="Node2D"]
 scale = Vector2(2, 2)
@@ -11,9 +12,13 @@ color = Color(0.541176, 0.494118, 0.611765, 1)
 
 [node name="Map" parent="." instance=ExtResource("1_dr0lo")]
 
-[node name="TileMapStars" parent="Map/ParallaxBackground/Spase" index="1"]
-layer_0/tile_data = PackedInt32Array(-65536, 196608, 0)
+[node name="Entitys" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_syrc7")]
+[node name="Puzzle" type="Node2D" parent="Entitys"]
+
+[node name="PlayerEntity" parent="Entitys" instance=ExtResource("2_y07t5")]
+
+[node name="StarShardEentity" parent="Entitys" instance=ExtResource("3_xxreo")]
+position = Vector2(30, 0)
 
 [editable path="Map"]

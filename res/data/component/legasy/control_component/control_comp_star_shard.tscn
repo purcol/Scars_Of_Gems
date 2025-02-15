@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3m0d7cnqpha5"]
 
-[ext_resource type="Script" path="res://res/data/entitys/scripts/control_component/control_comp_star_shard.gd" id="1_v3nnq"]
+[ext_resource type="Script" path="res://res/data/entitys/lagasy/scripts/control_component/control_comp_star_shard.gd" id="1_v3nnq"]
 
 [node name="ControlCompStarShard" type="Node2D"]
 script = ExtResource("1_v3nnq")

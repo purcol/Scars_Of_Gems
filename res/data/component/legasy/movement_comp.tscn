@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cltfi1o238f0x"]
 
-[ext_resource type="Script" path="res://res/data/entitys/scripts/movement_comp.gd" id="1_ewlsa"]
+[ext_resource type="Script" path="res://res/data/entitys/lagasy/scripts/movement_comp.gd" id="1_ewlsa"]
 
 [node name="Movement_comp" type="CharacterBody2D"]
 script = ExtResource("1_ewlsa")

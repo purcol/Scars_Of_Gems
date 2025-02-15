@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm4tu8vab6e4o"]
 
-[ext_resource type="Script" path="res://res/data/entitys/scripts/movement_path_comp.gd" id="1_sr82p"]
+[ext_resource type="Script" path="res://res/data/entitys/lagasy/scripts/movement_path_comp.gd" id="1_sr82p"]
 
 [sub_resource type="Curve2D" id="Curve2D_xcqda"]
 _data = {

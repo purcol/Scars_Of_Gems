@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://6cy1xrwcwyw7"]
 
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_3jamk"]
-[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/door.tscn" id="2_0qlw3"]
-[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/platform.tscn" id="2_5ua3p"]
-[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/player.tscn" id="2_p4pwb"]
+[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/lagasy/door.tscn" id="2_0qlw3"]
+[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/lagasy/platform.tscn" id="2_5ua3p"]
+[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/lagasy/player.tscn" id="2_p4pwb"]
 [ext_resource type="PackedScene" uid="uid://s0pfoi60k5wn" path="res://res/data/tools/path_teller.tscn" id="3_1ytkm"]
 
 [sub_resource type="Curve2D" id="Curve2D_v4nk4"]

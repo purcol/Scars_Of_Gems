@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://c1gm8yct6p6r7" path="res://res/data/tile_set.tres" id="1_icro3"]
 [ext_resource type="Script" path="res://res/data/scripts/door.gd" id="1_ptu7o"]
-[ext_resource type="PackedScene" uid="uid://dp0pjxuc32bob" path="res://res/data/component/control_comp.tscn" id="2_te6ra"]
-[ext_resource type="PackedScene" uid="uid://bydk3laaoov3a" path="res://res/data/component/control_component/control_comp_door.tscn" id="3_5mlg0"]
+[ext_resource type="PackedScene" uid="uid://dp0pjxuc32bob" path="res://res/data/component/legasy/control_comp.tscn" id="2_te6ra"]
+[ext_resource type="PackedScene" uid="uid://bydk3laaoov3a" path="res://res/data/component/legasy/control_component/control_comp_door.tscn" id="3_5mlg0"]
 [ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="4_42aty"]
 
 [node name="Door" type="Node2D"]
