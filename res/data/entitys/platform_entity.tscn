@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://wxq55to77i0w"]
+
+[ext_resource type="TileSet" uid="uid://c1gm8yct6p6r7" path="res://res/data/tile_set.tres" id="1_smgcm"]
+[ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="2_8ekuv"]
+[ext_resource type="PackedScene" uid="uid://dtkm8rs50hjpg" path="res://res/data/component/controlers/controler_platform.tscn" id="3_f0is4"]
+[ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="3_q3vj4"]
+
+[node name="Platform_Entity" type="CharacterBody2D"]
+z_index = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_smgcm")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 393216, 7, 1, 393216, 6, -65535, 393216, 6, -131071, 393216, 5, 65536, 327680, 7, 0, 327680, 6, -65536, 327680, 6, -131072, 327680, 5, 131071, 327680, 7, 65535, 327680, 6, -1, 327680, 6, -65537, 327680, 5, 131070, 262144, 7, 65534, 262144, 6, -2, 262144, 6, -65538, 262144, 5)
+
+[node name="Path" type="Path2D" parent="."]
+
+[node name="Follow" type="PathFollow2D" parent="Path"]
+
+[node name="RemoteTransformComp" type="RemoteTransform2D" parent="Path/Follow"]
+remote_path = NodePath("../../../Components")
+update_rotation = false
+update_scale = false
+
+[node name="RemoteTransformTile" type="RemoteTransform2D" parent="Path/Follow"]
+remote_path = NodePath("../../../TileMap")
+update_rotation = false
+update_scale = false
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Controler_Component" parent="Components" instance=ExtResource("2_8ekuv")]
+
+[node name="step_counter" parent="Components/Controler_Component" instance=ExtResource("3_q3vj4")]
+
+[node name="ControlCompPlatform" parent="Components/Controler_Component" instance=ExtResource("3_f0is4")]
+speed = 0.2

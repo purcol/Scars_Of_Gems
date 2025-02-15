@@ -4,7 +4,8 @@ extends Path2D
 
 func _ready() -> void:
 	$"../Path/Follow".loop = is_loop
+	$"../Path".curve = curve
 	if is_loop:
 		curve.add_point(Vector2(0,0))
-	$"../Path".curve = curve
+	#queue_free()
 	

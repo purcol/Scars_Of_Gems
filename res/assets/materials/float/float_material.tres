@@ -6,4 +6,5 @@
 shader = ExtResource("1_4vna0")
 shader_parameter/do_quantize = null
 shader_parameter/quantize_to = 1.0
-shader_parameter/sine_speed = Vector2(1, 0)
+shader_parameter/sine_amplitude_ = Vector2(1, 1)
+shader_parameter/sine_speed_ = Vector2(4, 4)

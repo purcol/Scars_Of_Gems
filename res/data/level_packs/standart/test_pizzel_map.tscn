@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cps726wly3rva"]
 
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_bindc"]
-[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/lagasy/door.tscn" id="2_aotmj"]
-[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/lagasy/platform.tscn" id="3_xkoqs"]
+[ext_resource type="PackedScene" uid="uid://wxq55to77i0w" path="res://res/data/entitys/platform_entity.tscn" id="2_l8gjn"]
+[ext_resource type="PackedScene" uid="uid://ccs0oml6nmboi" path="res://res/data/entitys/door_entity.tscn" id="4_ledfa"]
 [ext_resource type="PackedScene" uid="uid://s0pfoi60k5wn" path="res://res/data/tools/path_teller.tscn" id="4_mcqf2"]
 [ext_resource type="PackedScene" uid="uid://bv7hq4clxerf1" path="res://res/data/entitys/star_shard_entity.tscn" id="6_13tgi"]
 [ext_resource type="PackedScene" uid="uid://c01ndjx7caldq" path="res://res/data/entitys/player_entity.tscn" id="6_w6xek"]
@@ -40,24 +40,24 @@ layer_1/tile_data = PackedInt32Array(-327676, 1114112, 0, -327685, 1114112, 0, 1
 
 [node name="Puzzle" type="Node2D" parent="Entitys"]
 
-[node name="Door" parent="Entitys/Puzzle" instance=ExtResource("2_aotmj")]
+[node name="Platform_Entity" parent="Entitys/Puzzle" instance=ExtResource("2_l8gjn")]
+position = Vector2(-160, 192)
+
+[node name="path_teller" parent="Entitys/Puzzle/Platform_Entity" instance=ExtResource("4_mcqf2")]
+curve = SubResource("Curve2D_ytcbp")
+
+[node name="Door_Entity" parent="Entitys/Puzzle" instance=ExtResource("4_ledfa")]
 position = Vector2(-56, -40)
 reverse = true
 
-[node name="Door2" parent="Entitys/Puzzle" instance=ExtResource("2_aotmj")]
+[node name="Door_Entity2" parent="Entitys/Puzzle" instance=ExtResource("4_ledfa")]
 position = Vector2(-56, 8)
 rotation = 3.14159
-
-[node name="Platform" parent="Entitys/Puzzle" instance=ExtResource("3_xkoqs")]
-position = Vector2(-160, 192)
-
-[node name="path_teller" parent="Entitys/Puzzle/Platform" instance=ExtResource("4_mcqf2")]
-curve = SubResource("Curve2D_ytcbp")
 
 [node name="PlayerEntity" parent="Entitys" instance=ExtResource("6_w6xek")]
 position = Vector2(44, -16)
 
 [node name="StarShardEentity" parent="Entitys" instance=ExtResource("6_13tgi")]
-position = Vector2(-335.5, -18.5)
+position = Vector2(-344, -16)
 
 [editable path="Map"]

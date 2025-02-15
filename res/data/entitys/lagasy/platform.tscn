@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://c1gm8yct6p6r7" path="res://res/data/tile_set.tres" id="1_131bh"]
 [ext_resource type="PackedScene" uid="uid://dp0pjxuc32bob" path="res://res/data/component/legasy/control_comp.tscn" id="3_m48qo"]
-[ext_resource type="PackedScene" uid="uid://dtkm8rs50hjpg" path="res://res/data/component/legasy/control_component/control_comp_platform.tscn" id="3_vio3w"]
+[ext_resource type="PackedScene" uid="uid://dtkm8rs50hjpg" path="res://res/data/component/controlers/controler_platform.tscn" id="3_vio3w"]
 [ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="4_8m6f8"]
 
 [node name="Platform" type="Node2D"]
