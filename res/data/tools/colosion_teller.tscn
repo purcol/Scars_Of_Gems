@@ -5,6 +5,10 @@ script/source = "extends CollisionShape2D
 
 func _ready() -> void:
 	$\"../CollisionShape\".shape = shape
+	$\"../CollisionShape\".disabled = disabled
+
+func _physics_process(delta: float) -> void:
+	$\"../CollisionShape\".disabled = disabled
 "
 
 [node name="colosion_teller" type="CollisionShape2D"]

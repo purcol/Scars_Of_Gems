@@ -1,5 +1,23 @@
-[gd_scene format=3 uid="uid://cw03e0euy74ob"]
+[gd_scene load_steps=3 format=3 uid="uid://cw03e0euy74ob"]
+
+[sub_resource type="Gradient" id="Gradient_ms4f7"]
+offsets = PackedFloat32Array(0.63253, 0.879518)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.546)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1vdg3"]
+gradient = SubResource("Gradient_ms4f7")
+width = 1024
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.97, 0.03)
 
 [node name="Camera_Component" type="Camera2D"]
-position = Vector2(-0.5, -11)
 position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(3.62396e-05, 0)
+scale = Vector2(0.675781, 0.855469)
+texture = SubResource("GradientTexture2D_1vdg3")

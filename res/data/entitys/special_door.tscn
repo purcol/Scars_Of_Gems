@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3ju3ebasab5k"]
+
+[ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="1_ejpap"]
+[ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="2_wbw2m"]
+[ext_resource type="PackedScene" uid="uid://dp63ajdas4w70" path="res://res/data/component/controlers/controlel_special_door.tscn" id="3_v14hp"]
+[ext_resource type="PackedScene" uid="uid://coxn6mx5vmp8r" path="res://res/data/component/light_component.tscn" id="4_4mp37"]
+[ext_resource type="PackedScene" uid="uid://cqjr2xmtpm2ax" path="res://res/data/component/sprite_component.tscn" id="4_u4sbe"]
+[ext_resource type="Texture2D" uid="uid://rgyanfykokxn" path="res://res/assets/textures/entitys/special_door/special door.png" id="5_4q6vi"]
+[ext_resource type="PackedScene" uid="uid://cgkqgyckm6aap" path="res://res/data/component/area_component.tscn" id="6_7uimb"]
+[ext_resource type="PackedScene" uid="uid://c7vxpe27ovwxb" path="res://res/data/tools/colosion_teller.tscn" id="7_7xugv"]
+
+[sub_resource type="GDScript" id="GDScript_v0pvl"]
+script/source = "extends CharacterBody2D
+
+@export var reverse:bool = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fst8x"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26gtm"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5gji"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ysk"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h05il"]
+size = Vector2(16, 16)
+
+[node name="SpecialDoor_Entity" type="CharacterBody2D"]
+script = SubResource("GDScript_v0pvl")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Controler_Component" parent="Components" instance=ExtResource("1_ejpap")]
+_static = true
+
+[node name="step_counter" parent="Components/Controler_Component" instance=ExtResource("2_wbw2m")]
+
+[node name="SpecialControlCompDoor" parent="Components/Controler_Component" instance=ExtResource("3_v14hp")]
+
+[node name="Light_component" parent="Components" instance=ExtResource("4_4mp37")]
+energy = 5.19
+
+[node name="Sprite_Component" parent="Components" instance=ExtResource("4_u4sbe")]
+rotation = -0.785397
+texture = ExtResource("5_4q6vi")
+offset = Vector2(0, 8)
+
+[node name="Area_Component-1" parent="Components" instance=ExtResource("6_7uimb")]
+
+[node name="colosion_teller" parent="Components/Area_Component-1" instance=ExtResource("7_7xugv")]
+shape = SubResource("RectangleShape2D_fst8x")
+
+[node name="Area_Component0" parent="Components" instance=ExtResource("6_7uimb")]
+
+[node name="colosion_teller" parent="Components/Area_Component0" instance=ExtResource("7_7xugv")]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_26gtm")
+disabled = true
+
+[node name="Area_Component1" parent="Components" instance=ExtResource("6_7uimb")]
+
+[node name="colosion_teller" parent="Components/Area_Component1" instance=ExtResource("7_7xugv")]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_p5gji")
+disabled = true
+
+[node name="Area_Component2" parent="Components" instance=ExtResource("6_7uimb")]
+
+[node name="colosion_teller" parent="Components/Area_Component2" instance=ExtResource("7_7xugv")]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_75ysk")
+disabled = true
+
+[node name="Area_Component3" parent="Components" instance=ExtResource("6_7uimb")]
+
+[node name="colosion_teller" parent="Components/Area_Component3" instance=ExtResource("7_7xugv")]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_h05il")
+disabled = true
+
+[connection signal="body_exited" from="Components/Area_Component0" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_0_body_exited"]
+[connection signal="body_exited" from="Components/Area_Component1" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_1_body_exited"]
+[connection signal="body_exited" from="Components/Area_Component2" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_2_body_exited"]
+[connection signal="body_exited" from="Components/Area_Component3" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_3_body_exited"]

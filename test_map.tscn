@@ -1,16 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://6cy1xrwcwyw7"]
 
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_3jamk"]
-[ext_resource type="PackedScene" uid="uid://clinv3bnelh27" path="res://res/data/entitys/lagasy/door.tscn" id="2_0qlw3"]
-[ext_resource type="PackedScene" uid="uid://dadxts6xoganm" path="res://res/data/entitys/lagasy/platform.tscn" id="2_5ua3p"]
-[ext_resource type="PackedScene" uid="uid://b47mj7uwssg5i" path="res://res/data/entitys/lagasy/player.tscn" id="2_p4pwb"]
 [ext_resource type="PackedScene" uid="uid://s0pfoi60k5wn" path="res://res/data/tools/path_teller.tscn" id="3_1ytkm"]
+
+[sub_resource type="Resource" id="Resource_4wuf8"]
+metadata/__load_path__ = "res://res/data/entitys/lagasy/door.tscn"
+
+[sub_resource type="Resource" id="Resource_s02eq"]
+metadata/__load_path__ = "res://res/data/entitys/lagasy/platform.tscn"
 
 [sub_resource type="Curve2D" id="Curve2D_v4nk4"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70.5, 0, 0, 0, 0, 0, 95.5, 31.5, -52.556, -18.9202, 52.556, 18.9202, 125.5, 90.5, -6.30672, -48.772, 6.30672, 48.772, 315.455, 61.5, -113.941, -6.30672, 113.941, 6.30672, 283, -23, 0, 0, 0, 0, 22, 52.5, 0, 0, 0, 0, -59, 75, 0, 0, 0, 0, -54, -0.5, 0, 0, 0, 0, -3, 35.5)
 }
 point_count = 10
+
+[sub_resource type="Resource" id="Resource_t8dge"]
+metadata/__load_path__ = "res://res/data/entitys/lagasy/player.tscn"
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(2, 2)
@@ -43,17 +49,17 @@ layer_2/modulate = Color(1, 0.556286, 0.492913, 1)
 z_index = 1
 layer_0/tile_data = PackedInt32Array(589834, 1114112, 0, 458774, 1114112, 0, 720913, 1114112, 0, 851995, 1114112, 0, 983042, 1114112, 0, 131085, 1114112, 0, 196635, 1114112, 0)
 
-[node name="Platform2" parent="." instance=ExtResource("2_0qlw3")]
+[node name="Platform2" parent="."]
 position = Vector2(137.5, 152.5)
 reverse = true
 
-[node name="Platform" parent="." instance=ExtResource("2_5ua3p")]
+[node name="Platform" parent="."]
 position = Vector2(211, 219)
 
 [node name="path_teller" parent="Platform" instance=ExtResource("3_1ytkm")]
 curve = SubResource("Curve2D_v4nk4")
 
-[node name="Player" parent="." instance=ExtResource("2_p4pwb")]
+[node name="Player" parent="."]
 z_index = 1
 position = Vector2(254, 145)
 

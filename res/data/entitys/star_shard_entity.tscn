@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv7hq4clxerf1"]
+[gd_scene load_steps=9 format=3 uid="uid://bv7hq4clxerf1"]
 
+[ext_resource type="PackedScene" uid="uid://coxn6mx5vmp8r" path="res://res/data/component/light_component.tscn" id="1_du8q8"]
 [ext_resource type="PackedScene" uid="uid://dwrrelixaw27" path="res://res/data/component/star_glow_component.tscn" id="1_xcxge"]
 [ext_resource type="PackedScene" uid="uid://cqjr2xmtpm2ax" path="res://res/data/component/sprite_component.tscn" id="2_uwmap"]
 [ext_resource type="Material" uid="uid://cgjvl78rhtc0h" path="res://res/assets/materials/float/float_material.tres" id="3_nrp4r"]
@@ -8,11 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://c7vxpe27ovwxb" path="res://res/data/tools/colosion_teller.tscn" id="6_7668l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a1lk"]
+size = Vector2(14, 14)
 
 [node name="StarShardEentity" type="CharacterBody2D"]
 z_index = 1
 
 [node name="Components" type="Node2D" parent="."]
+
+[node name="Light_component" parent="Components" instance=ExtResource("1_du8q8")]
+position = Vector2(1, 0)
+color = Color(0.194, 0.194, 0.194, 1)
 
 [node name="StarGlow_Component" parent="Components" instance=ExtResource("1_xcxge")]
 
@@ -20,9 +26,9 @@ z_index = 1
 material = ExtResource("3_nrp4r")
 texture = ExtResource("4_nrtxj")
 
-[node name="Area_Component" parent="Components" instance=ExtResource("5_oeovu")]
+[node name="Area_Component_SS" parent="Components" instance=ExtResource("5_oeovu")]
 
-[node name="colosion_teller" parent="Components/Area_Component" instance=ExtResource("6_7668l")]
+[node name="colosion_teller" parent="Components/Area_Component_SS" instance=ExtResource("6_7668l")]
 shape = SubResource("RectangleShape2D_7a1lk")
 
-[connection signal="body_shape_entered" from="Components/Area_Component" to="Components/Area_Component" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Components/Area_Component_SS" to="Components/Area_Component_SS" method="_on_body_shape_entered"]

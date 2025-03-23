@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://c1gm8yct6p6r7" path="res://res/data/tile_set.tres" id="1_a3kc5"]
 [ext_resource type="Material" uid="uid://b0s1lrmrvby71" path="res://res/assets/materials/ignore_light.tres" id="1_g2fu1"]
-[ext_resource type="Script" path="res://res/data/entitys/scripts/tile_colisions.gd" id="3_x6ayy"]
+[ext_resource type="Script" uid="uid://d1dw8dpsftnf4" path="res://res/data/entitys/scripts/tile_colisions.gd" id="3_x6ayy"]
 
 [sub_resource type="GDScript" id="GDScript_n4ech"]
 script/source = "extends TileMap

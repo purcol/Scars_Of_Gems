@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://c01ndjx7caldq"]
+[gd_scene load_steps=14 format=3 uid="uid://c01ndjx7caldq"]
 
 [ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="1_333pt"]
 [ext_resource type="PackedScene" uid="uid://cuu7l00uhw1pr" path="res://res/data/component/controlers/controler_keys.tscn" id="2_6bjwg"]
 [ext_resource type="PackedScene" uid="uid://dj88q6qc4b5qa" path="res://res/data/component/animated_sprite_component.tscn" id="3_u5rw2"]
 [ext_resource type="PackedScene" uid="uid://cw03e0euy74ob" path="res://res/data/component/camera_component.tscn" id="4_d3jl4"]
+[ext_resource type="Texture2D" uid="uid://b6hkoien83vst" path="res://res/assets/textures/restart_overlay.png" id="5_fi1rs"]
+[ext_resource type="PackedScene" uid="uid://dmtgx6o1kq77p" path="res://res/data/component/ray_cast_component.tscn" id="5_t5hhc"]
+[ext_resource type="PackedScene" uid="uid://d075raxdgwncr" path="res://res/data/component/game_play_music_component.tscn" id="6_jp7rs"]
+[ext_resource type="AudioStream" uid="uid://b6icbq2o3oe58" path="res://res/assets/sounds/music/_original_ost/wacum_void/New Composition  29.mp3" id="7_cserd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy84l"]
+bg_color = Color(0.956863, 0.388235, 0.34902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqcr8"]
+bg_color = Color(0.972549, 0.847059, 0.188235, 1)
+
+[sub_resource type="Theme" id="Theme_xj2b4"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_iy84l")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_oqcr8")
+
+[sub_resource type="GDScript" id="GDScript_upm5d"]
+script/source = "extends ProgressBar
+
+func  _process(_delta: float) -> void:
+	value = G.restart_timer
+	modulate = Color(1,1,1,0.1*G.restart_timer)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwive"]
-size = Vector2(11, 2)
+size = Vector2(10, 10)
 
 [node name="PlayerEntity" type="CharacterBody2D"]
 z_index = 1
@@ -15,13 +37,56 @@ z_index = 1
 
 [node name="Controler_Component" parent="Components" instance=ExtResource("1_333pt")]
 
-[node name="Controler_Component" parent="Components/Controler_Component" instance=ExtResource("2_6bjwg")]
+[node name="Keys_Component" parent="Components/Controler_Component" instance=ExtResource("2_6bjwg")]
 
 [node name="Animated_Sprite_Component" parent="Components" instance=ExtResource("3_u5rw2")]
+position = Vector2(0, 0)
 animation = &"simple_idel"
+offset = Vector2(-0.5, -12)
 idel_anim = "simple_idel"
 
 [node name="Camera_Component" parent="Components" instance=ExtResource("4_d3jl4")]
 
+[node name="ProgressBar" type="ProgressBar" parent="Components/Camera_Component"]
+light_mask = 2
+visibility_layer = 2
+z_index = 5
+offset_left = -278.0
+offset_top = -153.0
+offset_right = -253.0
+offset_bottom = -128.0
+theme = SubResource("Theme_xj2b4")
+step = 1.0
+fill_mode = 3
+show_percentage = false
+script = SubResource("GDScript_upm5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Components/Camera_Component/ProgressBar"]
+position = Vector2(12.5, 12.5)
+scale = Vector2(1.781, 1.781)
+texture = ExtResource("5_fi1rs")
+
+[node name="RayCast_Component_right" parent="Components" instance=ExtResource("5_t5hhc")]
+position = Vector2(0, -8)
+target_position = Vector2(16, 0)
+
+[node name="RayCast_Component_left" parent="Components" instance=ExtResource("5_t5hhc")]
+position = Vector2(0, -8)
+target_position = Vector2(-16, 0)
+
+[node name="RayCast_Component_up" parent="Components" instance=ExtResource("5_t5hhc")]
+position = Vector2(0, -8)
+target_position = Vector2(0, -16)
+
+[node name="RayCast_Component_down" parent="Components" instance=ExtResource("5_t5hhc")]
+position = Vector2(0, -8)
+
+[node name="GamePlayMusic_Component" parent="Components" instance=ExtResource("6_jp7rs")]
+stream = ExtResource("7_cserd")
+volume_db = -16.0
+autoplay = false
+parameters/looping = true
+
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_kwive")

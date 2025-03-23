@@ -1,40 +1,91 @@
 extends Node2D
 
 @export var keys:Array[String] = ["ui_left", "ui_right", "ui_up", "ui_down"]
-var velocity := Vector2(0,0)
-var idel_anim := "simple_idel"
-var ver_mov := false
-var hor_mov := false
-
-const SPEED = 200
+@export var SPEED := 0.1
+@export var ignore_colision_tag:Array[String] = ["StarShardEentity"]
+var velocity := Vector2.ZERO
+var flag := false
+var can_wallk:Array[bool] = []
 
 func  _physics_process(_delta: float) -> void:
-	movment(Input.get_axis(keys[0], keys[1]),Input.get_axis(keys[2], keys[3]))
+	can_wallk = update_avalible_diractions()
+	if !G.in_movement_ignore_zone:
+		movment(Input.get_axis(keys[0], keys[1]),Input.get_axis(keys[2], keys[3]))
+	if !flag:
+		for i in G.waited_list:
+			print_debug(G.waited_list)
+			move(i.x,i.y,false)
+			G.waited_list.erase(i)
+			await get_tree().create_timer(0.3).timeout
+			flag = false
 	$"..".velocity = velocity
 
 func movment(direction_x, direction_y) -> void:
-	horisontal_movment(direction_x)
-	vertical_movment(direction_y)
-	bugs()
+	if flag:
+		pass
+	else:
+		if direction_x != 0:
+			if direction_x > 0: 
+				if can_wallk[0]:
+					move(direction_x, 0)
+			else:
+				if can_wallk[1]:
+					move(direction_x, 0)
+		elif direction_y != 0:
+			if direction_y > 0: 
+				if can_wallk[3]:
+					move(0, direction_y)
+			else: 
+				if can_wallk[2]:
+					move(0, direction_y)
+		if flag:
+			await get_tree().create_timer(0.3).timeout
+			flag = false
 	$"..".sprite_chenge(direction_x, direction_y)
 
-func bugs():
-	if velocity.x + velocity.y > 7500:
-		velocity.x /= 15
-		velocity.y /= 15
-
-func vertical_movment(direction) -> void:
-	if direction:
-		ver_mov = true
-		velocity.y = direction * SPEED
+func move(direction_x:float = 0, direction_y:float = 0, update:bool = true) -> void:
+	get_tree().create_tween().tween_property($"../../..", "position", 
+	Vector2(
+		(($"../../..".position.x)+16*direction_x),
+		(($"../../..".position.y)+16*direction_y)
+		)
+	,SPEED
+	)
+	if update:
+		G.steps += 1
+		G.step_history.append([position.x/16,position.y/16])
+	flag = true
+	
+func update_avalible_diractions() -> Array[bool]:
+	var dir:Array[bool] = []
+	if ($"../../RayCast_Component_right".get_collider() 
+	and !$"../../RayCast_Component_right".get_collider().get_node("../../").name in ignore_colision_tag
+	and !$"../../RayCast_Component_right".get_collider().get_node("../").has_node("Controler_Component/SpecialControlCompDoor")):
+		
+		dir.append(false)
 	else:
-		ver_mov = false
-		velocity.y = move_toward(velocity.y, 0, SPEED*0.15)
-
-func horisontal_movment(direction) -> void:
-	if direction:
-		velocity.x = direction * SPEED
-		hor_mov = true
+		dir.append(true)
+	if ($"../../RayCast_Component_left".get_collider()
+	and !$"../../RayCast_Component_left".get_collider().get_node("../../").name in ignore_colision_tag
+	and !$"../../RayCast_Component_left".get_collider().get_node("../").has_node("Controler_Component/SpecialControlCompDoor")):
+		
+		dir.append(false)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED*0.15)
-		hor_mov = false
+		dir.append(true)
+	if ($"../../RayCast_Component_up".get_collider()
+	and !$"../../RayCast_Component_up".get_collider().get_node("../../").name in ignore_colision_tag
+	and !$"../../RayCast_Component_up".get_collider().get_node("../").has_node("Controler_Component/SpecialControlCompDoor")):
+		
+		dir.append(false)
+	else:
+		dir.append(true)
+	if ($"../../RayCast_Component_down".get_collider()
+	and !$"../../RayCast_Component_down".get_collider().get_node("../../").name in ignore_colision_tag
+	and !$"../../RayCast_Component_down".get_collider().get_node("../").has_node("Controler_Component/SpecialControlCompDoor")):
+		
+		dir.append(false)
+	else:
+		dir.append(true)
+	#if $"../../RayCast_Component_right".get_collider():
+		#print($"../../RayCast_Component_right".get_collider().get_node("../../").name)
+	return dir

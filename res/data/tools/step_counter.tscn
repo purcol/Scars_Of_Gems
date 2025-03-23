@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0a8hfgy6tyrc"]
 
-[ext_resource type="Script" path="res://res/data/tools/scripts/step_counter.gd" id="1_uywwk"]
+[ext_resource type="Script" uid="uid://c5r6hrvujn6rf" path="res://res/data/tools/scripts/step_counter.gd" id="1_uywwk"]
 
 [node name="step_counter" type="Node"]
 script = ExtResource("1_uywwk")

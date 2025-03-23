@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://e7om73xggbe6"]
+
+[ext_resource type="Texture2D" uid="uid://bcmr5e1egsmy2" path="res://res/assets/textures/gui/test_button.png" id="1_27mf3"]
+[ext_resource type="Texture2D" uid="uid://bis736ewrbwqx" path="res://res/assets/textures/gui/test_gui_prev.png" id="2_ed6wb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.00392157, 0.0352941, 0.0745098, 1)
+polygon = PackedVector2Array(-32, -32, -32, 672, 1184, 672, 1184, -32)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = -13.0
+offset_top = 285.0
+offset_right = 71.0
+offset_bottom = 298.0
+scale = Vector2(4.48, 4.48)
+texture_normal = ExtResource("1_27mf3")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = -16.0
+offset_top = 368.0
+offset_right = 68.0
+offset_bottom = 381.0
+scale = Vector2(4.48, 4.48)
+texture_normal = ExtResource("1_27mf3")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = -16.0
+offset_top = 448.0
+offset_right = 68.0
+offset_bottom = 461.0
+scale = Vector2(4.48, 4.48)
+texture_normal = ExtResource("1_27mf3")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = -16.0
+offset_top = 528.0
+offset_right = 68.0
+offset_bottom = 541.0
+scale = Vector2(4.48, 4.48)
+texture_normal = ExtResource("1_27mf3")
+
+[node name="TestGuiPrev" type="Sprite2D" parent="."]
+position = Vector2(632, 320)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ed6wb")

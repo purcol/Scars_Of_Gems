@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6icbq2o3oe58"
+path="res://.godot/imported/New Composition  29.mp3-5ed539caf8316ccdd010593a5394b9b2.mp3str"
+
+[deps]
+
+source_file="res://res/assets/sounds/music/_original_ost/wacum_void/New Composition  29.mp3"
+dest_files=["res://.godot/imported/New Composition  29.mp3-5ed539caf8316ccdd010593a5394b9b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

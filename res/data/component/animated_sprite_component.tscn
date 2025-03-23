@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bqacthkmx8y1e" path="res://res/assets/textures/entitys/starl/starl-walk_left.png" id="8_87osc"]
 [ext_resource type="Texture2D" uid="uid://dw11o2hd4t7wr" path="res://res/assets/textures/entitys/starl/starl-walk_right.png" id="9_fvj1o"]
 [ext_resource type="Texture2D" uid="uid://drytjxwdjtovy" path="res://res/assets/textures/entitys/starl/starl-walk_up.png" id="10_hurc4"]
-[ext_resource type="Script" path="res://res/data/component/scripts/animated_sprite_component.gd" id="11_3p1wr"]
+[ext_resource type="Script" uid="uid://bcr1u32dt28vn" path="res://res/data/component/scripts/animated_sprite_component.gd" id="11_3p1wr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0ygd"]
 atlas = ExtResource("5_agucs")

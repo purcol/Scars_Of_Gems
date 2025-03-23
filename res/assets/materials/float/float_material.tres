@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cgjvl78rhtc0h"]
 
-[ext_resource type="Shader" path="res://res/assets/materials/float/float.gdshader" id="1_4vna0"]
+[ext_resource type="Shader" uid="uid://daosglhs7g3lu" path="res://res/assets/materials/float/float.gdshader" id="1_4vna0"]
 
 [resource]
 shader = ExtResource("1_4vna0")
-shader_parameter/do_quantize = null
+shader_parameter/do_quantize = false
 shader_parameter/quantize_to = 1.0
 shader_parameter/sine_amplitude_ = Vector2(1, 1)
 shader_parameter/sine_speed_ = Vector2(4, 4)

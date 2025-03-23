@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d075raxdgwncr"]
+
+[ext_resource type="AudioStream" uid="uid://c3pf6dtjikkjb" path="res://res/assets/sounds/music/space_original_ost/legasy/slow_space_ost.ogg" id="1_lch10"]
+
+[node name="GamePlayMusic_Component" type="AudioStreamPlayer"]
+stream = ExtResource("1_lch10")
+autoplay = true
+playback_type = 1
