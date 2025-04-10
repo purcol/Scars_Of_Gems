@@ -12,11 +12,14 @@ func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int
 			#get_tree().call_deferred("change_scene_to_file", "res://res/data/level_packs/"+G.current_pack+"/"+str(G.current_level)+".tscn")
 		#else:
 			#G.win = true
-			#get_tree().call_deferred("change_scene_to_file", "res://res/data/gui/main_menu.tscn")
+			#get_tree().call_deferred("change_scene_to_file", "res://res/data/gui/main_menu.tscn")\
+		
+		##Я вас уверяю здесь был нормальный код, а не этот кусок условия
 		var flag = false
-		if G.current_pack == "standart" and G.current_level == 1:
-			flag = true
-			get_tree().call_deferred("change_scene_to_file", "res://res/data/level_packs/standart/1.tscn")
+		if G.current_pack == "standart":
+			if G.current_level == 1:
+				flag = true
+				get_tree().call_deferred("change_scene_to_file", "res://res/data/level_packs/standart/1.tscn")
 		else:
 			if G.current_level == 1:
 				flag = true
@@ -28,4 +31,5 @@ func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int
 				flag = true
 				get_tree().call_deferred("change_scene_to_file", "res://res/data/level_packs/tutorial/3.tscn")
 		if !flag:
+			G.current_level = 0
 			get_tree().call_deferred("change_scene_to_file", "res://res/data/gui/main_menu.tscn")

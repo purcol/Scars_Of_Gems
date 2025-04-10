@@ -16,7 +16,7 @@ func  _physics_process(_delta: float) -> void:
 		if (Input.get_axis(keys[0], keys[1]) !=0) or (Input.get_axis(keys[2], keys[3]) !=0):
 			if !flag:
 				for i in G.waited_list:
-					print_debug(G.waited_list)
+					G.print_debug_mode(["Лист ожидания: ",G.waited_list],self.get_path())
 					move(i.x,i.y,false)
 					G.waited_list.erase(i)
 					await get_tree().create_timer(0.3).timeout

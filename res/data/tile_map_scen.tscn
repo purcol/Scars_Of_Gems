@@ -16,7 +16,7 @@ script/source = "extends TileMap
 
 func _ready() -> void:
 	var tl = get_used_cells_by_id(0, -1, Vector2i(17, 0))
-	print(tl)
+	G.print_debug_mode([\"Фонари установленны на: \",tl],self.get_path())
 	for i in range(tl.size()):
 		$\"../TileMap\".set_cell(0, tl[i], 1, Vector2i(0,0), 1)
 "

@@ -84,7 +84,7 @@ size = Vector2(16, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbpug"]
 size = Vector2(48, 16)
 
-[node name="Door_Entity" type="AnimatableBody2D"]
+[node name="Door_Entity" type="Marker2D"]
 z_index = 1
 script = ExtResource("1_bwhq1")
 

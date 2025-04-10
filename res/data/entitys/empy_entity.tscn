@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://3moflllxtv6j"]
 
-[node name="Empy_Entity" type="CharacterBody2D"]
+[node name="Empy_Entity" type="Marker2D"]
 
 [node name="Components" type="Node2D" parent="."]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c7vxpe27ovwxb" path="res://res/data/tools/colosion_teller.tscn" id="8_mtvwq"]
 
 [sub_resource type="GDScript" id="GDScript_v0pvl"]
-script/source = "extends CharacterBody2D
+script/source = "extends Marker2D
 
 @export var reverse:bool = false
 "
@@ -18,7 +18,7 @@ script/source = "extends CharacterBody2D
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26gtm"]
 size = Vector2(12, 11)
 
-[node name="Knockbacker_Entity" type="CharacterBody2D"]
+[node name="Knockbacker_Entity" type="Marker2D"]
 z_index = 1
 script = SubResource("GDScript_v0pvl")
 

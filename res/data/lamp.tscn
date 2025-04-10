@@ -16,12 +16,12 @@ func _ready() -> void:
 	#print(Engine.get_frames_per_second())
 "
 
-[sub_resource type="Gradient" id="Gradient_mmpsp"]
+[sub_resource type="Gradient" id="Gradient_nttt4"]
 offsets = PackedFloat32Array(0.214286, 1)
 colors = PackedColorArray(0.992513, 0.897889, 0.635535, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bpovf"]
-gradient = SubResource("Gradient_mmpsp")
+gradient = SubResource("Gradient_nttt4")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)

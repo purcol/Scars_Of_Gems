@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dtkm8rs50hjpg" path="res://res/data/component/controlers/controler_platform.tscn" id="3_f0is4"]
 [ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="3_q3vj4"]
 
-[node name="Platform_Entity" type="CharacterBody2D"]
+[node name="Platform_Entity" type="Marker2D"]
 z_index = 1
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -1,3 +1,3 @@
-extends AnimatableBody2D
+extends Marker2D
 
 @export var reverse:bool = false

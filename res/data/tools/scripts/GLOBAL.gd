@@ -10,6 +10,24 @@ var waited_list:Array = []
 var win = false
 @export var current_pack:String = "tutorial"
 @export var current_level:int = 0
+@export var debug:bool = false
+
+##Переводит лист в строку.
+func stringify(arr: Array) -> String:
+	var s = ""
+	for i in arr:
+		s += str(i)
+	return s
+
+##Печает ввод если debug=true.
+func print_debug_mode(input:Array,location:NodePath,is_warning:bool=false)->void:
+	var input_ = stringify(input)
+	if is_warning:
+		input_ = "[Waring]:\n | "+input_ #("+Time.get_date_string_from_system()+")
+	else:
+		input_ = "[Info]:\n | "+input_ #("+Time.get_date_string_from_system()+")
+	if debug:
+		print(input_,"\n +At: ",location)
 
 func set_p4(_value):
 	if step_p4 <3:

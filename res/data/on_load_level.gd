@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	print(G.current_level)
-	print_debug(G.current_level," | ",G.current_level+1, " | ",FileAccess.file_exists("res://res/data/level_packs/"+G.current_pack+"/"+str(G.current_level+1)+".tscn"))
+	G.print_debug_mode(["Текущий уровень: ",G.current_level,
+	"\n | Следуйщий уровень: ",G.current_level+1, 
+	"\n | Файл следуйщего уровня: ",FileAccess.file_exists("res://res/data/level_packs/"+G.current_pack+"/"+str(G.current_level+1)+".tscn")],self.get_path())
 	G.current_level += 1
 	G.reset()
