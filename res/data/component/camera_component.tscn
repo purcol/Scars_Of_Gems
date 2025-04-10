@@ -1,4 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw03e0euy74ob"]
+[gd_scene load_steps=4 format=3 uid="uid://cw03e0euy74ob"]
+
+[sub_resource type="GDScript" id="GDScript_p7fb2"]
+script/source = "extends Camera2D
+
+@onready var st_pos = position
+
+func _process(_delta: float) -> void:
+	position = st_pos + (get_local_mouse_position()*0.01)
+"
 
 [sub_resource type="Gradient" id="Gradient_ms4f7"]
 offsets = PackedFloat32Array(0.63253, 0.879518)
@@ -14,6 +23,7 @@ fill_to = Vector2(0.97, 0.03)
 
 [node name="Camera_Component" type="Camera2D"]
 position_smoothing_enabled = true
+script = SubResource("GDScript_p7fb2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2

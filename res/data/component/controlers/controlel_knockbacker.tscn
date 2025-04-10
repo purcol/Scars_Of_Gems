@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyhljoggg3wtf"]
+
+[ext_resource type="Script" uid="uid://bc5v7h7bdk0fh" path="res://res/data/component/controlers/scripts/special_control_comp_door.gd" id="1_8wf65"]
+
+[node name="ControlCompKnockbacker" type="Node2D"]
+script = ExtResource("1_8wf65")

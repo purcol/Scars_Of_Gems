@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://uw06wdauf7sk"]
+
+[ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="1_l4hs2"]
+[ext_resource type="PackedScene" uid="uid://cyhljoggg3wtf" path="res://res/data/component/controlers/controlel_knockbacker.tscn" id="3_bwyko"]
+[ext_resource type="PackedScene" uid="uid://coxn6mx5vmp8r" path="res://res/data/component/light_component.tscn" id="4_2pav3"]
+[ext_resource type="Script" uid="uid://hx71mb5kkep2" path="res://res/data/component/controlers/scripts/control_comp_knockbacker.gd" id="4_6ub56"]
+[ext_resource type="PackedScene" uid="uid://cqjr2xmtpm2ax" path="res://res/data/component/sprite_component.tscn" id="5_5mhrf"]
+[ext_resource type="Texture2D" uid="uid://bn08y3v4oj6oi" path="res://res/assets/textures/entitys/knockbacker/knockbacker.png" id="7_2pav3"]
+[ext_resource type="PackedScene" uid="uid://cgkqgyckm6aap" path="res://res/data/component/area_component.tscn" id="7_lcrd5"]
+[ext_resource type="PackedScene" uid="uid://c7vxpe27ovwxb" path="res://res/data/tools/colosion_teller.tscn" id="8_mtvwq"]
+
+[sub_resource type="GDScript" id="GDScript_v0pvl"]
+script/source = "extends CharacterBody2D
+
+@export var reverse:bool = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26gtm"]
+size = Vector2(12, 11)
+
+[node name="Knockbacker_Entity" type="CharacterBody2D"]
+z_index = 1
+script = SubResource("GDScript_v0pvl")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Controler_Component" parent="Components" instance=ExtResource("1_l4hs2")]
+_static = true
+
+[node name="ControlCompKnockbacker" parent="Components/Controler_Component" instance=ExtResource("3_bwyko")]
+script = ExtResource("4_6ub56")
+
+[node name="Light_component" parent="Components" instance=ExtResource("4_2pav3")]
+energy = 5.19
+
+[node name="Sprite_Component" parent="Components" instance=ExtResource("5_5mhrf")]
+position = Vector2(-0.00597572, -0.00877285)
+texture = ExtResource("7_2pav3")
+offset = Vector2(-0.00882297, 0.00597574)
+
+[node name="Area_Component0" parent="Components" instance=ExtResource("7_lcrd5")]
+
+[node name="colosion_teller" parent="Components/Area_Component0" instance=ExtResource("8_mtvwq")]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_26gtm")
+
+[connection signal="body_entered" from="Components/Area_Component0" to="Components/Controler_Component/ControlCompKnockbacker" method="_on_area_component_0_body_entered"]
+[connection signal="body_exited" from="Components/Area_Component0" to="Components/Controler_Component/ControlCompKnockbacker" method="_on_area_component_0_body_exited"]

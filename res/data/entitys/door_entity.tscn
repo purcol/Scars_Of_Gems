@@ -1,13 +1,82 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccs0oml6nmboi"]
+[gd_scene load_steps=20 format=3 uid="uid://ccs0oml6nmboi"]
 
 [ext_resource type="Script" uid="uid://bo8bfvb4cxs8s" path="res://res/data/entitys/scripts/door_entity.gd" id="1_bwhq1"]
 [ext_resource type="PackedScene" uid="uid://cjiu82hjtj01n" path="res://res/data/component/controler_component.tscn" id="2_qid3b"]
 [ext_resource type="PackedScene" uid="uid://bydk3laaoov3a" path="res://res/data/component/controlers/controlel_door.tscn" id="3_0aae4"]
-[ext_resource type="PackedScene" uid="uid://0a8hfgy6tyrc" path="res://res/data/tools/step_counter.tscn" id="3_4ca0w"]
-[ext_resource type="PackedScene" uid="uid://cqjr2xmtpm2ax" path="res://res/data/component/sprite_component.tscn" id="4_gxsdh"]
-[ext_resource type="Texture2D" uid="uid://bmpc4tl4ccnfq" path="res://res/assets/textures/entitys/door/door.png" id="5_vc6ji"]
+[ext_resource type="PackedScene" uid="uid://dj88q6qc4b5qa" path="res://res/data/component/animated_sprite_component.tscn" id="5_p1gj7"]
+[ext_resource type="Texture2D" uid="uid://cpxnufx88xiu" path="res://res/assets/textures/entitys/door/door_close.png" id="6_67hyk"]
+[ext_resource type="Texture2D" uid="uid://bhupoer3jukkw" path="res://res/assets/textures/entitys/door/door_open.png" id="7_cgt2o"]
 [ext_resource type="PackedScene" uid="uid://cgkqgyckm6aap" path="res://res/data/component/area_component.tscn" id="7_wto20"]
 [ext_resource type="PackedScene" uid="uid://c7vxpe27ovwxb" path="res://res/data/tools/colosion_teller.tscn" id="8_lsymq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oykrf"]
+atlas = ExtResource("6_67hyk")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej3pn"]
+atlas = ExtResource("6_67hyk")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w65ec"]
+atlas = ExtResource("6_67hyk")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exnwo"]
+atlas = ExtResource("6_67hyk")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f84l"]
+atlas = ExtResource("7_cgt2o")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d8uu"]
+atlas = ExtResource("7_cgt2o")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdi1w"]
+atlas = ExtResource("7_cgt2o")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nchrj"]
+atlas = ExtResource("7_cgt2o")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0d6e6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oykrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej3pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w65ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exnwo")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f84l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d8uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdi1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nchrj")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcxip"]
 size = Vector2(16, 48)
@@ -24,12 +93,13 @@ script = ExtResource("1_bwhq1")
 [node name="Controler_Component" parent="Components" instance=ExtResource("2_qid3b")]
 _static = true
 
-[node name="step_counter" parent="Components/Controler_Component" instance=ExtResource("3_4ca0w")]
-
 [node name="ControlCompDoor" parent="Components/Controler_Component" instance=ExtResource("3_0aae4")]
 
-[node name="Sprite_Component" parent="Components" instance=ExtResource("4_gxsdh")]
-texture = ExtResource("5_vc6ji")
+[node name="Animated_Sprite_Component" parent="Components" instance=ExtResource("5_p1gj7")]
+position = Vector2(0, 0)
+sprite_frames = SubResource("SpriteFrames_0d6e6")
+animation = &"open"
+speed_scale = 2.0
 
 [node name="Area_Component0" parent="Components" instance=ExtResource("7_wto20")]
 
@@ -41,3 +111,8 @@ shape = SubResource("RectangleShape2D_qcxip")
 [node name="colosion_teller" parent="Components/Area_Component1" instance=ExtResource("8_lsymq")]
 shape = SubResource("RectangleShape2D_kbpug")
 disabled = true
+
+[connection signal="body_entered" from="Components/Area_Component0" to="Components/Controler_Component/ControlCompDoor" method="_on_area_component_0_body_entered"]
+[connection signal="body_exited" from="Components/Area_Component0" to="Components/Controler_Component/ControlCompDoor" method="_on_area_component_0_body_exited"]
+[connection signal="body_entered" from="Components/Area_Component1" to="Components/Controler_Component/ControlCompDoor" method="_on_area_component_1_body_entered"]
+[connection signal="body_exited" from="Components/Area_Component1" to="Components/Controler_Component/ControlCompDoor" method="_on_area_component_1_body_exited"]

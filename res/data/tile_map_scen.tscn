@@ -75,7 +75,6 @@ layer_3/name = "Upper"
 tile_set = ExtResource("1_a3kc5")
 format = 2
 layer_0/name = "up"
-layer_0/modulate = Color(0, 1, 0, 1)
 layer_1/name = "up_right"
 layer_1/modulate = Color(1, 1, 0, 1)
 layer_2/name = "right"

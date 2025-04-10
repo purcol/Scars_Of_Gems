@@ -31,6 +31,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="SpecialDoor_Entity" type="CharacterBody2D"]
+z_index = 1
 script = SubResource("GDScript_v0pvl")
 
 [node name="Components" type="Node2D" parent="."]
@@ -46,7 +47,7 @@ _static = true
 energy = 5.19
 
 [node name="Sprite_Component" parent="Components" instance=ExtResource("4_u4sbe")]
-rotation = -0.785397
+rotation = -1.57079
 texture = ExtResource("5_4q6vi")
 offset = Vector2(0, 8)
 
@@ -58,32 +59,36 @@ shape = SubResource("RectangleShape2D_fst8x")
 [node name="Area_Component0" parent="Components" instance=ExtResource("6_7uimb")]
 
 [node name="colosion_teller" parent="Components/Area_Component0" instance=ExtResource("7_7xugv")]
-position = Vector2(16, 0)
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_26gtm")
 disabled = true
 
 [node name="Area_Component1" parent="Components" instance=ExtResource("6_7uimb")]
 
 [node name="colosion_teller" parent="Components/Area_Component1" instance=ExtResource("7_7xugv")]
-position = Vector2(0, 16)
+position = Vector2(-16, 16)
 shape = SubResource("RectangleShape2D_p5gji")
 disabled = true
 
 [node name="Area_Component2" parent="Components" instance=ExtResource("6_7uimb")]
 
 [node name="colosion_teller" parent="Components/Area_Component2" instance=ExtResource("7_7xugv")]
-position = Vector2(-16, 0)
+position = Vector2(-16, -16)
 shape = SubResource("RectangleShape2D_75ysk")
 disabled = true
 
 [node name="Area_Component3" parent="Components" instance=ExtResource("6_7uimb")]
 
 [node name="colosion_teller" parent="Components/Area_Component3" instance=ExtResource("7_7xugv")]
-position = Vector2(0, -16)
+position = Vector2(16, -16)
 shape = SubResource("RectangleShape2D_h05il")
 disabled = true
 
+[connection signal="body_entered" from="Components/Area_Component0" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_0_body_entered"]
 [connection signal="body_exited" from="Components/Area_Component0" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_0_body_exited"]
+[connection signal="body_entered" from="Components/Area_Component1" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_1_body_entered"]
 [connection signal="body_exited" from="Components/Area_Component1" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_1_body_exited"]
+[connection signal="body_entered" from="Components/Area_Component2" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_2_body_entered"]
 [connection signal="body_exited" from="Components/Area_Component2" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_2_body_exited"]
+[connection signal="body_entered" from="Components/Area_Component3" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_3_body_entered"]
 [connection signal="body_exited" from="Components/Area_Component3" to="Components/Controler_Component/SpecialControlCompDoor" method="_on_area_component_3_body_exited"]

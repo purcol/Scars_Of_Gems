@@ -2,7 +2,6 @@ extends Node2D
 
 @export var _static:bool = false
 var velocity:Vector2 = Vector2(0,0)
-var progress:float = 1
 
 func _physics_process(_delta: float) -> void:
 	if !_static:
