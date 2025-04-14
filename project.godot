@@ -13,6 +13,8 @@ config_version=5
 config/name="Scars of gems"
 run/main_scene="uid://e7om73xggbe6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.0156863, 0.0705882, 0.121569, 1)
+boot_splash/image="uid://6ox3cx77nsmi"
 config/icon="res://icon.svg"
 
 [autoload]
