@@ -1,10 +1,11 @@
-[gd_scene load_steps=61 format=3 uid="uid://e7om73xggbe6"]
+[gd_scene load_steps=68 format=3 uid="uid://e7om73xggbe6"]
 
 [ext_resource type="Texture2D" uid="uid://bcmr5e1egsmy2" path="res://res/assets/textures/gui/test_button.png" id="1_27mf3"]
 [ext_resource type="PackedScene" uid="uid://byru11itkwro2" path="res://res/data/tile_map_scen.tscn" id="1_dm014"]
 [ext_resource type="Texture2D" uid="uid://bis736ewrbwqx" path="res://res/assets/textures/gui/test_gui_prev.png" id="2_ed6wb"]
 [ext_resource type="Material" uid="uid://b0s1lrmrvby71" path="res://res/assets/materials/ignore_light.tres" id="2_kuxcr"]
 [ext_resource type="Texture2D" uid="uid://g0ggcdotdjxh" path="res://res/assets/textures/gui/sog_logo.png" id="3_lt4hh"]
+[ext_resource type="Texture2D" uid="uid://cu2ljnbqijtpf" path="res://res/assets/textures/tile_map.png" id="4_p7ok3"]
 [ext_resource type="PackedScene" uid="uid://ccs0oml6nmboi" path="res://res/data/entitys/door_entity.tscn" id="5_a3ojf"]
 [ext_resource type="PackedScene" uid="uid://c01ndjx7caldq" path="res://res/data/entitys/player_entity.tscn" id="5_e0vy2"]
 [ext_resource type="Texture2D" uid="uid://dyovlmewbxeig" path="res://res/assets/textures/gui/all_main_menu_buttons.png" id="7_a3ojf"]
@@ -567,6 +568,85 @@ region = Rect2(576, 16, 96, 16)
 atlas = ExtResource("1_27mf3")
 region = Rect2(576, 16, 96, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw5b1"]
+atlas = ExtResource("4_p7ok3")
+region = Rect2(272, 240, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsew0"]
+atlas = ExtResource("4_p7ok3")
+region = Rect2(256, 240, 16, 26)
+
+[sub_resource type="GDScript" id="GDScript_2btmx"]
+script/source = "extends TextureButton
+
+
+func _on_toggled(toggled_on: bool) -> void:
+	if G.fullbright: 
+		G.fullbright = false
+		$\"../../../CanvasModulate\".visible = true
+	else:
+		G.fullbright = true
+		$\"../../../CanvasModulate\".visible = false
+"
+
+[sub_resource type="Animation" id="Animation_sa1gq"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fullbright:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(227, -0.25, 0, 0.25, 0, 227, -0.25, 0, 0.25, 0, 227, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fullbright:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(284, -0.25, 0, 0.25, 0, 304, -0.25, 0, 0.25, 0, 284, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="Animation" id="Animation_2hcxo"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fullbright:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(227, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fullbright:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(330, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhjvx"]
+_data = {
+&"RESET": SubResource("Animation_2hcxo"),
+&"idle": SubResource("Animation_sa1gq")
+}
+
 [sub_resource type="Gradient" id="Gradient_mmpsp"]
 offsets = PackedFloat32Array(0.214286, 1)
 colors = PackedColorArray(0.992513, 0.897889, 0.635535, 1, 0, 0, 0, 0)
@@ -842,6 +922,27 @@ texture_hover = SubResource("AtlasTexture_d078j")
 texture_focused = SubResource("AtlasTexture_8l4w7")
 script = SubResource("GDScript_u0lfr")
 
+[node name="Fullbright" type="TextureButton" parent="Butons/Settings"]
+z_index = 99
+offset_left = 227.0
+offset_top = 284.0
+offset_right = 243.0
+offset_bottom = 310.0
+scale = Vector2(10, 10)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_hw5b1")
+texture_pressed = SubResource("AtlasTexture_wsew0")
+texture_hover = SubResource("AtlasTexture_wsew0")
+texture_disabled = SubResource("AtlasTexture_hw5b1")
+texture_focused = SubResource("AtlasTexture_wsew0")
+script = SubResource("GDScript_2btmx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Butons/Settings"]
+libraries = {
+&"": SubResource("AnimationLibrary_yhjvx")
+}
+autoplay = "idle"
+
 [node name="Shadow_button" type="Sprite2D" parent="."]
 visible = false
 light_mask = 4
@@ -968,5 +1069,7 @@ position = Vector2(916, 3)
 rotation = 1.57079
 texture = SubResource("GradientTexture1D_kuxcr")
 polygon = PackedVector2Array(-56.0022, 980, 332.018, 978.493, 715.998, 977.002, 722.001, -391.998, -59.9991, -395)
+
+[connection signal="toggled" from="Butons/Settings/Fullbright" to="Butons/Settings/Fullbright" method="_on_toggled"]
 
 [editable path="Map"]

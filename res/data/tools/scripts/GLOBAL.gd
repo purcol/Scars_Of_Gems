@@ -11,6 +11,7 @@ var win = false
 @export var current_pack:String = "tutorial"
 @export var current_level:int = 0
 @export var debug:bool = false
+@export var fullbright:bool = false
 
 ##Переводит лист в строку.
 func stringify(arr: Array) -> String:

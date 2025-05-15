@@ -70,7 +70,7 @@ offset_bottom = 12.0
 scale = Vector2(0.5, 0.5)
 theme = SubResource("Theme_ouxm2")
 text = "Когда Вы уходите с
-опрокидывателя
+мостика
 Вас отбрасывает по 
 направлении 
 стрелочек"

@@ -6,3 +6,5 @@ func _ready() -> void:
 	"\n | Файл следуйщего уровня: ",FileAccess.file_exists("res://res/data/level_packs/"+G.current_pack+"/"+str(G.current_level+1)+".tscn")],self.get_path())
 	G.current_level += 1
 	G.reset()
+	if G.fullbright:
+		$CanvasModulate.visible = false
